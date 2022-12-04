@@ -1,0 +1,6 @@
+require('./readDay.js')(1)
+  .then(t => t.split(/\n\n/)
+              .map(e => e.split(/\n/)
+                         .reduce((a, b) => parseInt(a) + parseInt(b|0), 0))
+              .reduce((a, b) => Math.max(a, b)))
+  .then(console.log)
