@@ -1,0 +1,10 @@
+require('./readDay')(4).then(i => 
+  i.split('\n')
+   .slice(0, -1)
+   .map(l => l.split(',')
+              .map(g => g.split('-')
+                         .map(c => parseInt(c)))
+              .map(([s,e]) => Array(e-s+1).fill(s).map((x,y) => x+y))
+       )
+              .filter(([a,b]) => a.every(e => b.includes(e)) || b.every(e => a.includes(e)))
+).then(r => console.log(r.length))
